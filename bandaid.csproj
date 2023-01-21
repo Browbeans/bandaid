@@ -10,4 +10,22 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Controllers\Models\**" />
+    <Compile Remove="IUserService.cs" />
+    <Compile Remove="Services\UserService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Controllers\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Controllers\Models\**" />
+  </ItemGroup>
+
 </Project>
