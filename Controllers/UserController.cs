@@ -1,6 +1,6 @@
-using bandaid.interfaces;
+using bandaid.Models;
+using bandaid.Services;
 using Microsoft.AspNetCore.Mvc;
-
 namespace bandaid.Controllers;
 
 [ApiController]
@@ -8,15 +8,16 @@ namespace bandaid.Controllers;
 public class UserController: ControllerBase
 {
 
-    private readonly IUserService1 _userService;
+    private readonly UserService _userService;
     public UserController(
-        IUserService1 userService
+        UserService userService
     )
     {
         _userService = userService;
     }
+
     [HttpGet(Name = "GetUser")]
-    public string Get()
+    public Task<ActionResult<List<Ad>>> Get()
     {
         var user = _userService.GetUserAsync();
         return user;
